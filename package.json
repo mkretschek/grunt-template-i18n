@@ -1,7 +1,7 @@
 {
   "name": "grunt-template-i18n",
   "description": "Easy template internationalization.",
-  "version": "0.0.1",
+  "version": "0.0.2-0",
   "homepage": "https://github.com/mkretschek/grunt-template-i18n",
   "author": {
     "name": "Mathias Kretschek",
