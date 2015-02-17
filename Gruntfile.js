@@ -30,21 +30,73 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     template_i18n: {
+
+      // Test the plugin's default options
       default_options: {
         options: {
+          localeSrc: 'test/fixtures/en.yml'
         },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: [{
+          src: 'test/fixtures/test.dot',
+          dest: 'tmp/default_options.dot'
+        }]
       },
-      custom_options: {
+
+      // Test the doT processor
+      dot_processor: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          localeSrc: 'test/fixtures/en.yml',
+          processor: 'dot'
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: [{
+          src: 'test/fixtures/test.dot',
+          dest: 'tmp/dot_processor.dot'
+        }]
+      },
+
+      // Test the EJS processor
+      ejs_processor: {
+        options: {
+          localeSrc: 'test/fixtures/en.yml',
+          processor: 'ejs'
+        },
+        files: [{
+          src: 'test/fixtures/test.ejs',
+          dest: 'tmp/ejs_processor.ejs'
+        }]
+      },
+
+      // Test the underscore template processor
+      underscore_processor: {
+        options: {
+          localeSrc: 'test/fixtures/en.yml',
+          processor: 'underscore'
+        },
+        files: [{
+          src: 'test/fixtures/test.underscore.html',
+          dest: 'tmp/underscore_processor.html'
+        }]
+      },
+
+      // Test a custom pattern and parser
+      custom_pattern: {
+        options: {
+          processor: 'dot',
+          localeSrc: 'test/fixtures/en.yml',
+          pattern: /foobarbaz/g,
+          parser: function () {
+            return {
+              id: 'test.interpolation',
+              params: {
+                foo: 'bar'
+              }
+            }
+          }
+        },
+        files: [{
+          src: 'test/fixtures/custom_pattern.dot',
+          dest: 'tmp/custom_pattern.dot'
+        }]
       }
     },
 
