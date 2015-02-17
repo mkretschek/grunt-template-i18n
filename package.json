@@ -37,7 +37,14 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "i18n",
+    "internationalization",
+    "dot",
+    "ejs",
+    "underscore",
+    "template",
+    "build"
   ],
   "dependencies": {
     "lodash": "^3.2.0"
